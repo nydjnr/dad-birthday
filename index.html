@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy 46th Birthday George Danquah</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --gold:#d4af37;
@@ -15,40 +17,58 @@
 body{
   margin:0;
   font-family:'Poppins', sans-serif;
-  background:linear-gradient(135deg,#ffffff,#fdf6e3);
+  background:linear-gradient(135deg,#ffffff,#faf7ef);
   color:#333;
   text-align:center;
   overflow-x:hidden;
 }
 
-h1,h2,h3{
-  color:var(--gold);
-  margin:10px 0;
+section{
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
 }
 
+h1,h2{
+  font-family:'Playfair Display', serif;
+  color:var(--gold);
+}
+
+/* HERO */
+.hero{
+  background:radial-gradient(circle at top,var(--soft-gold),white);
+  padding:90px 20px;
+}
+
+/* CAKE SECTION – pushed DOWN */
+.cake-section{
+  margin-top:120px;   /* THIS pushes cake down */
+}
+
+/* CAKE */
 .cake-wrapper{
   position:relative;
-  width:220px;
-  margin:30px auto;
+  width:170px;
+  margin:0 auto 20px;
 }
 
 .cake-body{
-  width:220px;
-  height:120px;
-  background:linear-gradient(var(--white),var(--soft-gold));
+  width:170px;
+  height:90px;
+  background:linear-gradient(#fff,#f3e6b3);
   border-radius:0 0 25px 25px;
   box-shadow:0 10px 30px rgba(0,0,0,0.15);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:bold;
   font-size:32px;
+  font-weight:700;
   color:var(--gold);
 }
 
 .candles{
   position:absolute;
-  top:-55px;
+  top:-40px;
   width:100%;
   display:flex;
   justify-content:space-around;
@@ -75,123 +95,113 @@ h1,h2,h3{
 }
 
 @keyframes flicker{
-  0%{opacity:1; transform:scale(1);}
-  50%{opacity:0.7; transform:scale(1.1);}
-  100%{opacity:1; transform:scale(1);}
+  0%{transform:scale(1);}
+  50%{transform:scale(0.9);}
+  100%{transform:scale(1);}
 }
 
 #cakeText{
-  margin-top:15px;
-  font-size:18px;
-  color:#333;
+  margin-top:25px;
+  font-size:1.1rem;
+  color:#555;
 }
 
-/* Confetti styles */
-.confetti-piece{
-  position:absolute;
+/* CONFETTI */
+.confetti{
+  position:fixed;
   width:8px;
   height:8px;
   background:var(--gold);
-  opacity:0.9;
   top:0;
   animation:fall 3s linear forwards;
 }
 
 @keyframes fall{
-  0%{transform:translateY(0) rotate(0deg);}
-  100%{transform:translateY(400px) rotate(360deg);}
-}
-
-audio{
-  margin-top:15px;
-  width:260px;
-  outline:none;
-  border-radius:10px;
+  to{
+    transform:translateY(100vh) rotate(360deg);
+    opacity:0;
+  }
 }
 </style>
 </head>
-<body>
-<h1>Happy 46th Birthday George Danquah!</h1>
-<h2>Make a wish and enjoy your special day 🎉</h2>
 
-<!-- Cake -->
-<div class="cake-wrapper">
-  <div class="candles">
-    <div class="candle"><div class="flame"></div></div>
-    <div class="candle"><div class="flame"></div></div>
-    <div class="candle"><div class="flame"></div></div>
-    <div class="candle"><div class="flame"></div></div>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Happy 46th Birthday</h1>
+  <h2>George Danquah</h2>
+  <p>A celebration of strength, wisdom, and love 🤍</p>
+</section>
+
+<!-- CAKE -->
+<section class="cake-section">
+  <h2>Make a Wish 🎂</h2>
+  <p>Tap anywhere, then blow into the mic</p>
+
+  <div class="cake-wrapper">
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
+    <div class="cake-body">46</div>
   </div>
 
-  <div class="cake-body">46</div>
-</div>
+  <p id="cakeText">🎤 Ready when you are</p>
+</section>
 
-<p id="cakeText">Tap anywhere to start the music and blow into the mic 🎤</p>
-
-<!-- Audio -->
 <audio id="birthdaySong">
   <source src="birthday.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-let started = false;
+let started=false;
 
-document.body.addEventListener("click", async () => {
+document.body.addEventListener("click", async ()=>{
   if(started) return;
-  started = true;
+  started=true;
 
-  // Start music
-  const song = document.getElementById("birthdaySong");
-  song.volume = 0.8;
-  song.play().catch(()=>{});
+  document.getElementById("birthdaySong").play().catch(()=>{});
 
-  // Start mic
   try{
-    const stream = await navigator.mediaDevices.getUserMedia({ audio:true });
-    const audioContext = new AudioContext();
-    const mic = audioContext.createMediaStreamSource(stream);
-    const analyser = audioContext.createAnalyser();
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    const audioCtx=new AudioContext();
+    const mic=audioCtx.createMediaStreamSource(stream);
+    const analyser=audioCtx.createAnalyser();
     mic.connect(analyser);
 
-    const data = new Uint8Array(analyser.frequencyBinCount);
-    let blown = false;
+    const data=new Uint8Array(analyser.frequencyBinCount);
+    let blown=false;
 
     function detect(){
       analyser.getByteFrequencyData(data);
-      const volume = data.reduce((a,b)=>a+b)/data.length;
+      const volume=data.reduce((a,b)=>a+b)/data.length;
 
-      if(volume > 40 && !blown){
-        blown = true;
+      if(volume>40 && !blown){
+        blown=true;
 
-        // Blow out candles
-        document.querySelectorAll(".flame").forEach(f=>{
-          f.style.display="none";
-        });
+        document.querySelectorAll(".flame").forEach(f=>f.style.display="none");
+        document.getElementById("cakeText").innerHTML=
+          "🎉 <strong>Happy 46th Birthday George Danquah!</strong> 🎉";
 
-        // Birthday message
-        document.getElementById("cakeText").innerHTML =
-          "🎉 <strong>Happy 46th Birthday George Danquah!</strong> 🎉<br>Make a wish 🤍";
-
-        // Confetti
         for(let i=0;i<50;i++){
-          const confetti = document.createElement("div");
-          confetti.classList.add("confetti-piece");
-          confetti.style.left = Math.random()*window.innerWidth+"px";
-          confetti.style.background = i%2===0?"#d4af37":"#f3e6b3";
-          document.body.appendChild(confetti);
-          setTimeout(()=>{ confetti.remove() },4000);
+          const c=document.createElement("div");
+          c.className="confetti";
+          c.style.left=Math.random()*100+"vw";
+          c.style.background=i%2?"#f3e6b3":"#d4af37";
+          document.body.appendChild(c);
+          setTimeout(()=>c.remove(),3000);
         }
-
         return;
       }
       requestAnimationFrame(detect);
     }
     detect();
-  }catch{
-    document.getElementById("cakeText").innerText =
-      "Please allow microphone access 🎤";
-  }
+  }catch{}
 });
 </script>
+
 </body>
 </html>
