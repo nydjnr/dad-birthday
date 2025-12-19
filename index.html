@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy 46th Birthday George Danquah</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --gold:#d4af37;
@@ -17,199 +15,137 @@
 body{
   margin:0;
   font-family:'Poppins', sans-serif;
-  background:linear-gradient(135deg,#ffffff,#faf7ef);
+  background:linear-gradient(135deg,#ffffff,#fdf6e3);
   color:#333;
-}
-
-section{
-  padding:60px 20px;
-  max-width:1000px;
-  margin:auto;
   text-align:center;
+  overflow-x:hidden;
 }
 
-h1,h2{
-  font-family:'Playfair Display', serif;
+h1,h2,h3{
+  color:var(--gold);
+  margin:10px 0;
+}
+
+.cake-wrapper{
+  position:relative;
+  width:220px;
+  margin:30px auto;
+}
+
+.cake-body{
+  width:220px;
+  height:120px;
+  background:linear-gradient(var(--white),var(--soft-gold));
+  border-radius:0 0 25px 25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-size:32px;
   color:var(--gold);
 }
 
-.hero{
-  background:radial-gradient(circle at top,var(--soft-gold),white);
-  padding:90px 20px;
-}
-
-.hero h1{
-  font-size:2.8rem;
-}
-
-.hero p{
-  font-size:1.2rem;
-  color:#555;
-}
-
-.photo img{
-  max-width:280px;
+.candles{
+  position:absolute;
+  top:-55px;
   width:100%;
-  border-radius:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.15);
-}
-
-.letter-box{
-  background:white;
-  border:1px solid var(--soft-gold);
-  border-radius:20px;
-  padding:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  max-width:700px;
-  margin:auto;
-}
-
-#letterText{
-  font-size:1.05rem;
-  line-height:1.8;
-  text-align:left;
-  white-space:pre-wrap;
-}
-
-button{
-  background:var(--gold);
-  color:white;
-  border:none;
-  padding:12px 24px;
-  border-radius:30px;
-  font-size:1rem;
-  cursor:pointer;
-}
-
-button:hover{
-  opacity:0.9;
-}
-
-/* Cake */
-#cake{
   display:flex;
-  flex-direction:column;
-  align-items:center;
+  justify-content:space-around;
 }
 
-#candle{
-  width:20px;
-  height:60px;
+.candle{
+  width:14px;
+  height:45px;
   background:white;
   border-radius:5px;
   position:relative;
-  margin-bottom:10px;
 }
 
-#flame{
-  width:18px;
-  height:18px;
+.flame{
+  width:16px;
+  height:16px;
   background:orange;
   border-radius:50%;
   position:absolute;
   top:-18px;
-  left:1px;
+  left:-1px;
   box-shadow:0 0 15px orange;
   animation:flicker .2s infinite;
 }
 
 @keyframes flicker{
-  0%{transform:scale(1);}
-  50%{transform:scale(0.9);}
-  100%{transform:scale(1);}
+  0%{opacity:1; transform:scale(1);}
+  50%{opacity:0.7; transform:scale(1.1);}
+  100%{opacity:1; transform:scale(1);}
 }
 
 #cakeText{
-  margin-top:18px;
-  font-weight:500;
-  color:var(--gold);
-  font-size:1.1rem;
+  margin-top:15px;
+  font-size:18px;
+  color:#333;
 }
 
-/* Footer */
-footer{
-  padding:30px;
-  text-align:center;
-  color:#777;
-  font-size:0.9rem;
+/* Confetti styles */
+.confetti-piece{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:var(--gold);
+  opacity:0.9;
+  top:0;
+  animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+  0%{transform:translateY(0) rotate(0deg);}
+  100%{transform:translateY(400px) rotate(360deg);}
+}
+
+audio{
+  margin-top:15px;
+  width:260px;
+  outline:none;
+  border-radius:10px;
 }
 </style>
 </head>
-
 <body>
+<h1>Happy 46th Birthday George Danquah!</h1>
+<h2>Make a wish and enjoy your special day 🎉</h2>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Happy 46th Birthday</h1>
-  <h2>George Danquah</h2>
-  <p>A celebration of strength, wisdom, and love 🤍</p>
-</section>
-
-<!-- PHOTO -->
-<section class="photo">
-  <img src="f9ce1856-e222-4e3a-9944-86d0440842c8.jpeg" alt="George Danquah">
-</section>
-
-<!-- LETTER -->
-<section>
-  <h2>A Birthday Letter 💌</h2>
-  <div class="letter-box">
-    <p id="letterText"></p>
-    <button onclick="startLetter()">Open Letter</button>
+<!-- Cake -->
+<div class="cake-wrapper">
+  <div class="candles">
+    <div class="candle"><div class="flame"></div></div>
+    <div class="candle"><div class="flame"></div></div>
+    <div class="candle"><div class="flame"></div></div>
+    <div class="candle"><div class="flame"></div></div>
   </div>
-</section>
 
-<!-- CAKE -->
-<section>
-  <h2>Make a Wish 🎂</h2>
-  <p>46 years of greatness ✨</p>
+  <div class="cake-body">46</div>
+</div>
 
-  <div id="cake">
-    <div id="candle">
-      <div id="flame"></div>
-    </div>
-    <p id="cakeText">Blow into the mic to blow out the candle 🎤</p>
-  </div>
-</section>
+<p id="cakeText">Tap anywhere to start the music and blow into the mic 🎤</p>
 
-<footer>
-  Made with love 🤍
-</footer>
+<!-- Audio -->
+<audio id="birthdaySong">
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-/* Letter animation */
-const letter = `Dear Dad,
+let started = false;
 
-Happy 46th Birthday 🎉
+document.body.addEventListener("click", async () => {
+  if(started) return;
+  started = true;
 
-Today we celebrate not just your age, but the life you’ve built, the values you live by, and the love you give so freely.
+  // Start music
+  const song = document.getElementById("birthdaySong");
+  song.volume = 0.8;
+  song.play().catch(()=>{});
 
-You are a source of strength, wisdom, and guidance. Your hard work, discipline, and kindness inspire everyone around you — especially me.
-
-Thank you for being a constant pillar, a teacher, and a role model.
-May this new year bring you peace, good health, and happiness beyond measure.
-
-We love you always.
-
-With all my heart,
-🤍`;
-
-let i=0;
-function startLetter(){
-  document.getElementById("letterText").innerHTML="";
-  i=0;
-  const interval=setInterval(()=>{
-    if(i < letter.length){
-      document.getElementById("letterText").innerHTML += letter.charAt(i);
-      i++;
-    }else{
-      clearInterval(interval);
-    }
-  },40);
-}
-
-/* Mic candle */
-async function startMic(){
+  // Start mic
   try{
     const stream = await navigator.mediaDevices.getUserMedia({ audio:true });
     const audioContext = new AudioContext();
@@ -218,28 +154,44 @@ async function startMic(){
     mic.connect(analyser);
 
     const data = new Uint8Array(analyser.frequencyBinCount);
-    let blown=false;
+    let blown = false;
 
     function detect(){
       analyser.getByteFrequencyData(data);
       const volume = data.reduce((a,b)=>a+b)/data.length;
 
       if(volume > 40 && !blown){
-        blown=true;
-        document.getElementById("flame").style.display="none";
-        document.getElementById("cakeText").innerHTML=
+        blown = true;
+
+        // Blow out candles
+        document.querySelectorAll(".flame").forEach(f=>{
+          f.style.display="none";
+        });
+
+        // Birthday message
+        document.getElementById("cakeText").innerHTML =
           "🎉 <strong>Happy 46th Birthday George Danquah!</strong> 🎉<br>Make a wish 🤍";
+
+        // Confetti
+        for(let i=0;i<50;i++){
+          const confetti = document.createElement("div");
+          confetti.classList.add("confetti-piece");
+          confetti.style.left = Math.random()*window.innerWidth+"px";
+          confetti.style.background = i%2===0?"#d4af37":"#f3e6b3";
+          document.body.appendChild(confetti);
+          setTimeout(()=>{ confetti.remove() },4000);
+        }
+
         return;
       }
       requestAnimationFrame(detect);
     }
     detect();
   }catch{
-    document.getElementById("cakeText").innerText="Please allow microphone access 🎤";
+    document.getElementById("cakeText").innerText =
+      "Please allow microphone access 🎤";
   }
-}
-startMic();
+});
 </script>
-
 </body>
 </html>
