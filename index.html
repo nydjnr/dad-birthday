@@ -3,176 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday George Danquah 🎉</title>
+<title>Happy 46th Birthday George Danquah</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+:root{
+  --gold:#d4af37;
+  --soft-gold:#f3e6b3;
+  --white:#ffffff;
 }
 
 body{
-  background:linear-gradient(135deg,#0b132b,#1c2541);
-  color:white;
-  overflow-x:hidden;
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:linear-gradient(135deg,#ffffff,#faf7ef);
+  color:#333;
 }
 
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+section{
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
   text-align:center;
-  padding:20px;
+}
+
+h1,h2{
+  font-family:'Playfair Display', serif;
+  color:var(--gold);
+}
+
+.hero{
+  background:radial-gradient(circle at top,var(--soft-gold),white);
+  padding:90px 20px;
 }
 
 .hero h1{
-  font-size:clamp(2.6rem,6vw,4.2rem);
-  color:#f9c74f;
-  animation:fadeDown 1.2s ease;
+  font-size:2.8rem;
 }
 
 .hero p{
-  margin-top:15px;
   font-size:1.2rem;
-  max-width:650px;
-  color:#f8f9fa;
-  animation:fadeUp 1.5s ease;
+  color:#555;
 }
 
-.btn{
-  margin-top:35px;
-  display:inline-block;
-  padding:14px 38px;
-  background:#f9c74f;
-  color:#1c2541;
-  text-decoration:none;
-  border-radius:40px;
-  font-weight:600;
-  transition:.3s;
+.photo img{
+  max-width:280px;
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
 }
 
-.btn:hover{
-  transform:scale(1.08);
-  background:#ffe066;
-}
-
-/* SECTIONS */
-section{
-  padding:85px 20px;
-  max-width:1100px;
+.letter-box{
+  background:white;
+  border:1px solid var(--soft-gold);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  max-width:700px;
   margin:auto;
 }
 
-section h2{
-  text-align:center;
-  font-size:2.4rem;
-  margin-bottom:40px;
-  color:#f9c74f;
-}
-
-/* LETTER */
-.letter-box{
-  background:#ffffff;
-  color:#1c2541;
-  padding:40px;
-  border-radius:22px;
+#letterText{
   font-size:1.05rem;
-  line-height:1.9;
-  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  line-height:1.8;
+  text-align:left;
+  white-space:pre-wrap;
 }
 
-.cursor{
-  display:inline-block;
-  width:2px;
-  background:#1c2541;
-  animation:blink 1s infinite;
+button{
+  background:var(--gold);
+  color:white;
+  border:none;
+  padding:12px 24px;
+  border-radius:30px;
+  font-size:1rem;
+  cursor:pointer;
 }
 
-@keyframes blink{
-  50%{opacity:0;}
+button:hover{
+  opacity:0.9;
 }
 
-/* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.photo{
-  background:rgba(255,255,255,.15);
-  border-radius:15px;
-  height:230px;
+/* Cake */
+#cake{
   display:flex;
+  flex-direction:column;
   align-items:center;
-  justify-content:center;
-  font-size:.9rem;
-  transition:.4s;
 }
 
-.photo:hover{
-  transform:scale(1.05);
-  background:rgba(255,255,255,.25);
+#candle{
+  width:20px;
+  height:60px;
+  background:white;
+  border-radius:5px;
+  position:relative;
+  margin-bottom:10px;
 }
 
-/* COUNTDOWN */
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
+#flame{
+  width:18px;
+  height:18px;
+  background:orange;
+  border-radius:50%;
+  position:absolute;
+  top:-18px;
+  left:1px;
+  box-shadow:0 0 15px orange;
+  animation:flicker .2s infinite;
 }
 
-.box{
-  background:rgba(255,255,255,.15);
-  padding:25px;
-  border-radius:20px;
-  min-width:110px;
-  text-align:center;
+@keyframes flicker{
+  0%{transform:scale(1);}
+  50%{transform:scale(0.9);}
+  100%{transform:scale(1);}
 }
 
-.box h3{
-  font-size:2.2rem;
-  color:#f9c74f;
+#cakeText{
+  margin-top:18px;
+  font-weight:500;
+  color:var(--gold);
+  font-size:1.1rem;
 }
 
-/* FOOTER */
+/* Footer */
 footer{
+  padding:30px;
   text-align:center;
-  padding:35px;
-  font-size:.9rem;
-  color:#e9ecef;
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-40px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-/* CONFETTI */
-.confetti{
-  position:fixed;
-  width:10px;
-  height:10px;
-  background:#f9c74f;
-  top:-10px;
-  animation:fall linear infinite;
-}
-
-@keyframes fall{
-  to{transform:translateY(110vh) rotate(360deg);}
+  color:#777;
+  font-size:0.9rem;
 }
 </style>
 </head>
@@ -180,105 +139,106 @@ footer{
 <body>
 
 <!-- HERO -->
-<div class="hero">
-  <div>
-    <h1>Happy Birthday<br>George Danquah 🎉</h1>
-    <p>
-      Today we celebrate a remarkable father, leader, and role model.
-      Your life is a blessing to everyone around you.
-    </p>
-    <a href="#letter" class="btn">Open Birthday Letter 💛</a>
-  </div>
-</div>
+<section class="hero">
+  <h1>Happy 46th Birthday</h1>
+  <h2>George Danquah</h2>
+  <p>A celebration of strength, wisdom, and love 🤍</p>
+</section>
+
+<!-- PHOTO -->
+<section class="photo">
+  <img src="dad.jpg" alt="George Danquah">
+</section>
 
 <!-- LETTER -->
-<section id="letter">
-<h2>A Birthday Letter</h2>
-<div class="letter-box">
-  <span id="typedText"></span><span class="cursor"></span>
-</div>
+<section>
+  <h2>A Birthday Letter 💌</h2>
+  <div class="letter-box">
+    <p id="letterText"></p>
+    <button onclick="startLetter()">Open Letter</button>
+  </div>
 </section>
 
-<!-- GALLERY -->
+<!-- CAKE -->
 <section>
-<h2>Memories & Moments</h2>
-<div class="gallery">
-  <div class="photo">Dad</div>
-  <div class="photo">Family</div>
-  <div class="photo">Special Day</div>
-  <div class="photo">Proud Moments</div>
-</div>
-</section>
+  <h2>Make a Wish 🎂</h2>
+  <p>46 years of greatness ✨</p>
 
-<!-- COUNTDOWN -->
-<section>
-<h2>Birthday Countdown 🎈</h2>
-<div class="countdown" id="countdown">
-  <div class="box"><h3 id="days">0</h3><p>Days</p></div>
-  <div class="box"><h3 id="hours">0</h3><p>Hours</p></div>
-  <div class="box"><h3 id="minutes">0</h3><p>Minutes</p></div>
-  <div class="box"><h3 id="seconds">0</h3><p>Seconds</p></div>
-</div>
+  <div id="cake">
+    <div id="candle">
+      <div id="flame"></div>
+    </div>
+    <p id="cakeText">Blow into the mic to blow out the candle 🎤</p>
+  </div>
 </section>
 
 <footer>
-Made with love to celebrate George Danquah 🤍
+  Made with love 🤍
 </footer>
 
 <script>
-/* TYPING LETTER */
+/* Letter animation */
 const letter = `Dear Dad,
 
-Happy Birthday 🎂.
+Happy 46th Birthday 🎉
 
-Thank you for being my strength, my guide, and my greatest example.
-Your wisdom, patience, and sacrifices have shaped the person I am today.
+Today we celebrate not just your age, but the life you’ve built, the values you live by, and the love you give so freely.
 
-I admire your discipline, your kindness, and the way you always put family first.
-I am truly proud to be your child.
+You are a source of strength, wisdom, and guidance. Your hard work, discipline, and kindness inspire everyone around you — especially me.
 
-May this new year of your life bring you peace, good health, and endless joy.
-You deserve every good thing today and always.
+Thank you for being a constant pillar, a teacher, and a role model.
+May this new year bring you peace, good health, and happiness beyond measure.
 
-With all my love,
-Your Child ❤️`;
+We love you always.
 
-let i = 0;
-const speed = 35;
-function typeLetter(){
-  if(i < letter.length){
-    document.getElementById("typedText").innerText += letter.charAt(i);
-    i++;
-    setTimeout(typeLetter, speed);
+With all my heart,
+🤍`;
+
+let i=0;
+function startLetter(){
+  document.getElementById("letterText").innerHTML="";
+  i=0;
+  const interval=setInterval(()=>{
+    if(i < letter.length){
+      document.getElementById("letterText").innerHTML += letter.charAt(i);
+      i++;
+    }else{
+      clearInterval(interval);
+    }
+  },40);
+}
+
+/* Mic candle */
+async function startMic(){
+  try{
+    const stream = await navigator.mediaDevices.getUserMedia({ audio:true });
+    const audioContext = new AudioContext();
+    const mic = audioContext.createMediaStreamSource(stream);
+    const analyser = audioContext.createAnalyser();
+    mic.connect(analyser);
+
+    const data = new Uint8Array(analyser.frequencyBinCount);
+    let blown=false;
+
+    function detect(){
+      analyser.getByteFrequencyData(data);
+      const volume = data.reduce((a,b)=>a+b)/data.length;
+
+      if(volume > 40 && !blown){
+        blown=true;
+        document.getElementById("flame").style.display="none";
+        document.getElementById("cakeText").innerHTML=
+          "🎉 <strong>Happy 46th Birthday George Danquah!</strong> 🎉<br>Make a wish 🤍";
+        return;
+      }
+      requestAnimationFrame(detect);
+    }
+    detect();
+  }catch{
+    document.getElementById("cakeText").innerText="Please allow microphone access 🎤";
   }
 }
-typeLetter();
-
-/* COUNTDOWN – EDIT DATE */
-const birthday = new Date("2025-01-01T00:00:00").getTime();
-
-setInterval(()=>{
-  const now = new Date().getTime();
-  const diff = birthday - now;
-  if(diff < 0){
-    document.getElementById("countdown").innerHTML="🎉 HAPPY BIRTHDAY GEORGE DANQUAH 🎉";
-    return;
-  }
-  days.innerText=Math.floor(diff/(1000*60*60*24));
-  hours.innerText=Math.floor((diff/(1000*60*60))%24);
-  minutes.innerText=Math.floor((diff/(1000*60))%60);
-  seconds.innerText=Math.floor((diff/1000)%60);
-},1000);
-
-/* CONFETTI */
-for(let i=0;i<90;i++){
-  const c=document.createElement("div");
-  c.className="confetti";
-  c.style.left=Math.random()*100+"vw";
-  c.style.animationDuration=(Math.random()*3+2)+"s";
-  c.style.opacity=Math.random();
-  document.body.appendChild(c);
-}
+startMic();
 </script>
 
 </body>
