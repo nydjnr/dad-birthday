@@ -40,9 +40,38 @@ h1,h2{
   padding:90px 20px;
 }
 
-/* CAKE SECTION – pushed DOWN */
+/* LETTER */
+.letter-box{
+  background:white;
+  border:1px solid var(--soft-gold);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  max-width:700px;
+  margin:auto;
+}
+
+#letterText{
+  text-align:left;
+  white-space:pre-wrap;
+  line-height:1.8;
+}
+
+/* BUTTON */
+button{
+  background:var(--gold);
+  color:white;
+  border:none;
+  padding:12px 26px;
+  border-radius:30px;
+  font-size:1rem;
+  cursor:pointer;
+  margin-top:15px;
+}
+
+/* CAKE SECTION – pushed down */
 .cake-section{
-  margin-top:120px;   /* THIS pushes cake down */
+  margin-top:120px;
 }
 
 /* CAKE */
@@ -134,6 +163,15 @@ h1,h2{
   <p>A celebration of strength, wisdom, and love 🤍</p>
 </section>
 
+<!-- LETTER -->
+<section>
+  <h2>A Birthday Letter 💌</h2>
+  <div class="letter-box">
+    <p id="letterText"></p>
+    <button onclick="startLetter()">Open Letter</button>
+  </div>
+</section>
+
 <!-- CAKE -->
 <section class="cake-section">
   <h2>Make a Wish 🎂</h2>
@@ -157,6 +195,37 @@ h1,h2{
 </audio>
 
 <script>
+/* LETTER */
+const letter = `Dear Dad,
+
+Happy 46th Birthday 🎉
+
+Today we celebrate not just your age, but the life you’ve built, the values you live by, and the love you give so freely.
+
+You are a source of strength, wisdom, and guidance. Your hard work, discipline, and kindness inspire everyone around you — especially me.
+
+Thank you for being a constant pillar, a teacher, and a role model.
+May this new year bring you peace, good health, and happiness beyond measure.
+
+We love you always.
+
+🤍`;
+
+let i=0;
+function startLetter(){
+  document.getElementById("letterText").innerHTML="";
+  i=0;
+  const interval=setInterval(()=>{
+    if(i < letter.length){
+      document.getElementById("letterText").innerHTML += letter.charAt(i);
+      i++;
+    }else{
+      clearInterval(interval);
+    }
+  },40);
+}
+
+/* MUSIC + MIC */
 let started=false;
 
 document.body.addEventListener("click", async ()=>{
